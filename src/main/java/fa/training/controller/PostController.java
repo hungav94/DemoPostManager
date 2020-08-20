@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fa.training.model.Post;
 import fa.training.service.PostService;
 
-@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/")
 public class PostController {
