@@ -51,12 +51,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+//		http.cors().and().csrf().disable().headers().and().authorizeRequests()
+//				.antMatchers("/api/auth/**").permitAll()
+//        		.anyRequest().authenticated();
+//		http.authorizeRequests().antMatchers("/users/**").hasAuthority("ADMIN").antMatchers("/admin/**").hasAuthority("ADMIN");
+//        http.cors().and().csrf().disable().headers().and().authorizeRequests().antMatchers("/authenticate").permitAll()
+//                .anyRequest().authenticated();
+		
 		http.cors().and().csrf().disable().headers().and().authorizeRequests()
 				.antMatchers("/api/auth/**").permitAll()
-        		.anyRequest().authenticated();
-		
-		http.exceptionHandling().and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/user/**").hasRole("ADMIN")
 				.antMatchers("/api/post/**").hasRole("USER")
 				.anyRequest()
