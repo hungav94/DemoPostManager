@@ -22,7 +22,6 @@ import fa.training.security.jwt.JwtUtils;
 import fa.training.service.UserService;
 import io.swagger.annotations.ApiOperation;
 
-@CrossOrigin(value = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -36,6 +35,7 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
+	@CrossOrigin(value = "*")
 	@ApiOperation(value = "Login controller")
 	@PostMapping("/login")
 	private ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
@@ -52,8 +52,8 @@ public class AuthController {
 				UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 				List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
 						.collect(Collectors.toList());
-				System.out.println(ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(),
-						userDetails.getEmail(), roles)));
+				System.out.println(ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(),
+						userDetails.getUsername(), userDetails.getEmail(), roles)));
 				return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(),
 						userDetails.getEmail(), roles));
 			}
