@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fa.training.model.User;
 import fa.training.service.UserService;
 
-@CrossOrigin(allowedHeaders = "*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/")
 public class UserController {
