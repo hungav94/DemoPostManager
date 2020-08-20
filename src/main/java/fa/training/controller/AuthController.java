@@ -3,8 +3,6 @@ package fa.training.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,7 +38,7 @@ public class AuthController {
 
 	@ApiOperation(value = "Login controller")
 	@PostMapping("/login")
-	private ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+	private ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
 		System.out.println(loginRequest);
 		try {
 			UsernamePasswordAuthenticationToken utoken = new UsernamePasswordAuthenticationToken(
