@@ -22,7 +22,7 @@ import fa.training.security.jwt.JwtUtils;
 import fa.training.service.UserService;
 import io.swagger.annotations.ApiOperation;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
