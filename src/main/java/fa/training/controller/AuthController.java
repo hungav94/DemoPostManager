@@ -22,6 +22,7 @@ import fa.training.security.jwt.JwtUtils;
 import fa.training.service.UserService;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -35,7 +36,6 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
-	@CrossOrigin(value = "*")
 	@ApiOperation(value = "Login controller")
 	@PostMapping("/login")
 	private ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {

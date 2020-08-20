@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import fa.training.model.User;
 import fa.training.service.UserService;
 
+@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api/")
-@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
